@@ -6,32 +6,7 @@
         Please say your favorite South Park character's name.
       </prompt>
 
-      <!-- Define the grammar. -->
-      <grammar xml:lang="en-us" root = "myrule">
-
-        <rule id="myrule">
-          <one-of>
-            <%= render :partial => "items", :locals => { :my_items => @characters } %>
-          </one-of>
-        </rule>
-      </grammar>
-
-      <!-- The user was silent, restart the field. -->
-      <noinput>
-        I did not hear anything.  Please try again.
-        <reprompt/>
-      </noinput>
-
-      <!-- The user said something that was not defined in our grammar. -->
-      <nomatch>
-        I did not recognize that character.  Please try again.
-        <reprompt/>
-      </nomatch>
     </field>
 
-    <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
-    <filled namelist="SouthParkCharacter">
-      <%= render :partial => "conditionals", :locals => { :conditionals => @characters } %>
-    </filled>
   </form>
 </vxml>
