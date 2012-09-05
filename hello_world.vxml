@@ -6,5 +6,8 @@
      <prompt>Would you like coffee, tea, milk, or nothing?</prompt>
      <grammar src="drink.grxml" type="application/srgs+xml"/>
 	  </field>
+	  <block>
+	     OK
+	  </block>
   </form>
 </vxml>
