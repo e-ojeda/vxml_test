@@ -3,7 +3,7 @@
   <form id="MainMenu">
     <field name="SouthParkCharacter">
       <prompt>
-        Please say your favorite South Park character's name.
+        Hello World
       </prompt>
 
     </field>
