@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
   <form id="MainMenu">
-  	<block></block>
+  	<block>Hello</block>
   </form>
-  <field name="name">
-     <prompt>What is your name?</prompt>
-     <grammar src="name.grxml" type="application/srgs+xml"/>
-  </field>
 </vxml>
