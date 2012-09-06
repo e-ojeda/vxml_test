@@ -10,7 +10,7 @@
   <form id="MainMenu">
 		<block>
 			<value expr="hi"/>			
-			<goto next="#say_goodbye"/>
+			<!-- <goto next="#say_goodbye"/> -->
 		</block>
 		
 	<field name="op">
