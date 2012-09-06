@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
-	<var name="hi" expr="'Hello World!'"/>
+	<var name="hi" expr="'Welcome!, please say a number and will give you the property code'"/>
 	<!-- Gives Error: "XML error Invalid start data" -->
 	<!-- <data name="number" src="/e-ojeda/vxml_test/master/dnis_lookup/55555.json" /> -->
 	<data name="dnis" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"/> 
@@ -13,19 +13,17 @@
 			<!-- <goto next="#say_goodbye"/> -->
 		</block>
 		
-	<field name="op">
+	<field name="a" type="number">
 		<prompt>
-			Say number.
+			Please say number
 		</prompt>
-		<grammar type="application/x-nuance-gsl">
-			[55555]
-		</grammar>
 		<help>
-			Please say what you want to do. <reprompt/> 
+			Please say a number.
+			This number will be used as the first operand. <reprompt/> 
 		</help>
 		<filled>
 			<prompt>
-				Okay, let's <value expr="op"/> two numbers.
+				You entered <value expr="a"/> as number.
 			</prompt>
 		</filled>
 	</field>
