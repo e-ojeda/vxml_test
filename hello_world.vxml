@@ -12,7 +12,7 @@
 			<value expr="hi"/>			
 		</block>
 		
-	<field name="a" type="number">
+	<field name="a" type="phone">
 		<prompt>
 			Please say number
 		</prompt>
