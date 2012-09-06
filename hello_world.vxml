@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
 	<var name="hi" expr="'Hello World!'"/>
+	<data name="number" src="/dnis_lookup/55555.json" />
 	<data name="quote" src="quote.xml"/> 
   <form id="MainMenu">
 		<block>
