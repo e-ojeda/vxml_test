@@ -10,7 +10,25 @@
   <form id="MainMenu">
 		<block>
 			<value expr="hi"/>
-			This is a new line
+			
+			<field name="op">
+				<prompt>
+					Choose add, subtract, multiply, or divide.
+				</prompt>
+				<grammar type="application/x-nuance-gsl">
+					[add subtract multiply divide]
+				</grammar>
+				<help>
+					Please say what you want to do. <reprompt/> 
+					/help>
+				<filled>
+					<prompt>
+						Okay, let's <value expr="op"/> two numbers.
+					</prompt>
+				</filled>
+			</field>
+			
+			
 			<goto next="#say_goodbye"/>
 		</block>
 	</form>
