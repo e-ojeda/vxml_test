@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
 	<var name="hi" expr="'Hello World!'"/>
-	<data name="domSubjects" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/8669656732.json" />
+	<data name="number" src="http://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.json" />
   <form id="MainMenu">
 		<block>
 			<value expr="hi"/>
