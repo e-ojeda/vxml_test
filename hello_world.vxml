@@ -22,7 +22,7 @@
 		</grammar>
 		<help>
 			Please say what you want to do. <reprompt/> 
-			/help>
+		</help>
 		<filled>
 			<prompt>
 				Okay, let's <value expr="op"/> two numbers.
