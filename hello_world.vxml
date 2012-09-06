@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+	<meta name="author" content="John Doe"/>
+	<meta name="maintainer" content="hello-support@hi.example.com"/>
+	<var name="hi" expr="'Hello World!'"/>
   <form id="MainMenu">
-  	<block>Hello World 2</block>
-  	<field name="name">
-     <prompt>Would you like coffee, tea, milk, or nothing?</prompt>
-     <grammar src="drink.grxml" type="application/srgs+xml"/>
-	  </field>
-	  <block>
-	     OK
-	  </block>
-  </form>
+		<block>
+			<value expr="hi"/>
+			<goto next="#say_goodbye"/>
+		</block>
+	</form>
+	<form id="say_goodbye">
+		<block>
+			Goodbye!
+		</block>
+	</form>
 </vxml>
