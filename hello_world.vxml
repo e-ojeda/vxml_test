@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
-	<meta name="author" content="John Doe">
-	<meta name="maintainer" content="hello-support@hi.example.com">
 	<var name="hi" expr="ßHello World">
   <form id="MainMenu">
 		<block>
