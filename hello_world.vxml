@@ -9,12 +9,11 @@
 	]]></script>
   <form id="MainMenu">
 		<block>
-			<value expr="hi"/>			
+			<value expr="hi"/>
+			The property code for the number 55555 is <value expr="property_code"/>			
 		</block>
 	
-		<prompt>
-			The property code for the number 55555 is <value expr="property_code"/>
-		</prompt>
+
 	
 	<!--
 	<field name="a" type="number">
@@ -40,6 +39,10 @@
 			</if>
 		</filled>
 	</field>
+	
+	<prompt>
+		The property code for the number 55555 is <value expr="property_code"/>
+	</prompt>
 	-->
 	
 	<block>
