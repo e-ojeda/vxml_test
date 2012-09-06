@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
-	<var name="hi" expr="ßHello World">
+	<var name="hi" expr="'Hello World!'"/>
   <form id="MainMenu">
 		<block>
-			<value expr="hi">
-			<goto next="#say_goodbye">
+			<value expr="hi"/>
+			<goto next="#say_goodbye"/>
 		</block>
 	</form>
 	<form id="say_goodbye">
