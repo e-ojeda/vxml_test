@@ -22,21 +22,22 @@
 		</help>
 		<filled>
 			<prompt>
-				You entered <value expr="a"/>.
+				OK, You entered <value expr="a"/>.
 			</prompt>
+			
+			<if cond="a == 55555">
+				<prompt>
+					The property code for the number <value expr="a"/> is <value expr="property_code"/>
+				</prompt>
+			<else/>
+				<prompt>
+					I cannot locate that number
+				</prompt>
+			</if>
+			
 		</filled>
 	</field>
-	
-	<if cond="a == 55555">
-		<prompt>
-			The property code for the number <value expr="a"/> is <value expr="property_code"/>
-		</prompt>
-	<else/>
-		<prompt>
-			I cannot locate that number
-		</prompt>
-	</if>
-		
+
 	<block>
 		Goodbye!
 	</block>		
