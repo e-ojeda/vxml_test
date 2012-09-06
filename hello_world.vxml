@@ -15,10 +15,10 @@
 		
 	<field name="op">
 		<prompt>
-			Choose add, subtract, multiply, or divide.
+			Say number.
 		</prompt>
 		<grammar type="application/x-nuance-gsl">
-			[add subtract multiply divide]
+			[55555]
 		</grammar>
 		<help>
 			Please say what you want to do. <reprompt/> 
