@@ -3,7 +3,7 @@
 	<var name="hi" expr="'Hello World!'"/>
 	<!-- Gives Error: "XML error Invalid start data" -->
 	<!-- <data name="number" src="/e-ojeda/vxml_test/master/dnis_lookup/55555.json" /> -->
-	<data name="quote" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"/> 
+	<data name="dnis" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"/> 
 	<script><![CDATA[
 	  var price = dnis.documentElement.getElementsByTagName("property_code").item(0).firstChild.data;
 	]]></script>
