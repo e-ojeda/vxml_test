@@ -10,6 +10,7 @@
   <form id="MainMenu">
 		<block>
 			<value expr="hi"/>
+			This is a new line
 			<goto next="#say_goodbye"/>
 		</block>
 	</form>
