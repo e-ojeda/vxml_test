@@ -11,7 +11,12 @@
 		<block>
 			<value expr="hi"/>			
 		</block>
-		
+	
+		<prompt>
+			The property code for the number 55555 is <value expr="property_code"/>
+		</prompt>
+	
+	<!--
 	<field name="a" type="number">
 		<prompt>
 			Please say number to get its property code
@@ -35,7 +40,8 @@
 			</if>
 		</filled>
 	</field>
-
+	-->
+	
 	<block>
 		Goodbye!
 	</block>		
