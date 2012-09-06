@@ -9,28 +9,28 @@
 	]]></script>
   <form id="MainMenu">
 		<block>
-			<value expr="hi"/>
-			
-			<field name="op">
-				<prompt>
-					Choose add, subtract, multiply, or divide.
-				</prompt>
-				<grammar type="application/x-nuance-gsl">
-					[add subtract multiply divide]
-				</grammar>
-				<help>
-					Please say what you want to do. <reprompt/> 
-					/help>
-				<filled>
-					<prompt>
-						Okay, let's <value expr="op"/> two numbers.
-					</prompt>
-				</filled>
-			</field>
-			
-			
+			<value expr="hi"/>			
 			<goto next="#say_goodbye"/>
 		</block>
+		
+	<field name="op">
+		<prompt>
+			Choose add, subtract, multiply, or divide.
+		</prompt>
+		<grammar type="application/x-nuance-gsl">
+			[add subtract multiply divide]
+		</grammar>
+		<help>
+			Please say what you want to do. <reprompt/> 
+			/help>
+		<filled>
+			<prompt>
+				Okay, let's <value expr="op"/> two numbers.
+			</prompt>
+		</filled>
+	</field>
+	
+		
 	</form>
 	<form id="say_goodbye">
 		<block>
