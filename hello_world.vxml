@@ -21,9 +21,9 @@
 			This number will be used to find its property code. <reprompt/> 
 		</help>
 		<filled>
-			<prompt>OK, You entered <value expr="a"/> as the number</prompt>
-			<grammar mode="dtmf" version="1.0" root="topRule">
-			
+			<prompt>
+				OK, You entered <value expr="a"/> as the number
+			</prompt>
 			<if cond="a == 55555">
 				<prompt>
 					The property code for the number <value expr="a"/> is <value expr="property_code"/>
