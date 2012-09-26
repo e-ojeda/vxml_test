@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+
+	<menu>
+	  <prompt>
+	    Say one of: <enumerate/>
+	  </prompt>
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	     Sports
+	  </choice>
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	     Weather
+	  </choice>
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	     News
+	  </choice>
+	  <noinput>Please say one of <enumerate/></noinput>
+	</menu>
+
+
+</vxml>
