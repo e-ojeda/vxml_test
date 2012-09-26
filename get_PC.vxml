@@ -19,7 +19,7 @@
 	
 		<subdialog  name="getting_xml"
 	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"
-	              method="post"> 
+	              method="get"> 
 	    <filled>
 	      <prompt> This is the subdialog Prompt </prompt>
 	    </filled>
