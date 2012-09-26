@@ -15,59 +15,26 @@
 	  var property_code = dnis.documentElement.getElementsByTagName("property_code").item(0).firstChild.data;
 	]]></script>
 	
-	<subdialog  name="getting_xml"
-              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"
-							namelist="xml_object"
-              method="post"> 
-    <filled>
-      <prompt> This is the subdialog Prompt </prompt>
-    </filled>
-  </subdialog>
-	
-	
-	
   <form id="MainMenu">
+	
+		<subdialog  name="getting_xml"
+	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"
+								namelist="xml_object"
+	              method="post"> 
+	    <filled>
+	      <prompt> This is the subdialog Prompt </prompt>
+	    </filled>
+	  </subdialog>
+	
 		<block>
 			<value expr="hi"/>
 			The property code for the number 55555 is <value expr="property_code"/>	
 			<value expr="xml_object"/>		
 		</block>
 	
-
-	
-	<!--
-	<field name="a" type="number">
-		<prompt>
-			Please say number to get its property code
-		</prompt>
-		<help>
-			Please say a number.
-			This number will be used to find its property code. <reprompt/> 
-		</help>
-		<filled>
-			<prompt>
-				OK, You entered <value expr="a"/> as the number
-			</prompt>
-			<if cond="a == 55555">
-				<prompt>
-					The property code for the number <value expr="a"/> is <value expr="property_code"/>
-				</prompt>
-			<else/>
-				<prompt>
-					I cannot locate that number.
-				</prompt>
-			</if>
-		</filled>
-	</field>
-	
-	<prompt>
-		The property code for the number 55555 is <value expr="property_code"/>
-	</prompt>
-	-->
-	
-	<block>
-		Goodbye!
-	</block>		
+		<block>
+			Goodbye!
+		</block>		
 		
 	</form>
 </vxml>
