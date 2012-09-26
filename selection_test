@@ -5,13 +5,13 @@
 	  <prompt>
 	    Say one of: <enumerate/>
 	  </prompt>
-	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/selection_options/sports.vxml">
 	     Sports
 	  </choice>
-	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/selection_options/weather.vxml">
 	     Weather
 	  </choice>
-	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/hello_world.vxml">
+	  <choice next="https://raw.github.com/e-ojeda/vxml_test/master/selection_options/news.vxml">
 	     News
 	  </choice>
 	  <noinput>Please say one of <enumerate/></noinput>
