@@ -1,16 +1,36 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+	<!-- Variable Definitions -->
 	<var name="hi" expr="'Welcome!'"/>
+	<var name="xml_object" expr="Object" />
+	
+	
+	
 	<!-- Gives Error: "XML error Invalid start data" -->
 	<!-- <data name="dnis_from_json" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.txt"/> -->
+	
+	<!-- Getting XML using data element -->
 	<data name="dnis" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"/> 
 	<script><![CDATA[
 	  var property_code = dnis.documentElement.getElementsByTagName("property_code").item(0).firstChild.data;
 	]]></script>
+	
+	<subdialog  name="getting_xml"
+              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"
+							namelist="xml_object"
+              method="post"> 
+    <filled>
+      <prompt> This is the subdialog Prompt </prompt>
+    </filled>
+  </subdialog>
+	
+	
+	
   <form id="MainMenu">
 		<block>
 			<value expr="hi"/>
-			The property code for the number 55555 is <value expr="property_code"/>			
+			The property code for the number 55555 is <value expr="property_code"/>	
+			<value expr="xml_object"/>		
 		</block>
 	
 
