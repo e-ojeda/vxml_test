@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!-- $VailSys: users/jmeek/VVB_Tests/POST_Test_01/VVB_Rec_Inbound_Post_Test.vxml,v 1.1 2009/04/07 17:34:40 jmeek Exp $ -->
+  <!-- $Name:  $ -->
+
+  <!--    File:
+          Description: 
+          Author: Vail Systems
+          Copyright (c) 2005, 2006, 2009 Vail Systems, Inc.  All Rights Reserved.
+  -->
+
+<vxml xmlns="http://www.w3.org/2001/vxml"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml20/vxml.xsd"
+      version="2.0"
+      application="VVB_Rec_Inbound_Post_Test_Root.vxml">
+
+  <var name="global" expr="application.global" />
+  <var name="global.recordingArray" expr="new Array()" />
+
+  <catch event="nomatch noinput ">
+    <log expr="_event" />
+    <exit/>
+  </catch>
+
+  <form id="INIT">
+    <block>
+      <goto next="#WHAT_TO_DO" />
+    </block>
+</form>
+
+  <!-- MENU WHAT_TO_DO  ********************************************** -->
+  <menu id="WHAT_TO_DO">
+    <property name="bargein" value="true"/>
+    <property name="timeout" value="2s"/>
+
+    <prompt bargein="true"> Do you want to record, or play back? </prompt>
+
+    <choice next="#RECORD" >
+      <grammar type="application/srgs+xml" root="record">
+        <rule id="record" scope="public" >
+            <item> <ruleref special="GARBAGE"/> record </item>
+        </rule>
+      </grammar>
+    </choice>
+
+    <choice next="#PLAYBACK_WHICH_RECORDING" >
+      <grammar type="application/srgs+xml" root="playback">
+        <rule id="playback" scope="public" >
+            <item> <ruleref special="GARBAGE"/> play back </item>
+        </rule>
+      </grammar>
+    </choice>
+    
+    <catch event="noinput nomatch">
+      <reprompt/>
+    </catch>
+
+  </menu>
+  <!-- end of MENU WHAT_TO_DO  ***** -->
+
+  <!-- FORM RECORD ********************************************** -->
+  <form id="RECORD">
+    <property name="inputmodes" value="dtmf"/>
+    <property name="bargeintype" value="hotword"/>
+    <property name="termchar" value="" />
+    <property name="timeout" value="2s" />
+    <property name="termtimeout" value="100ms"/>
+    <property name="interdigittimeout" value="200ms"/>
+
+    <block>
+      <if cond="global.recordingArray.length &gt; 2" >
+        <prompt> There is a limit of three recordings. </prompt>
+        <goto next="#PLAYBACK_WHICH_RECORDING"/>
+      </if>
+    </block>
+
+    <!-- -->
+    <record  name="msg" beep="true" maxtime="10s"
+      finalsilence="4000ms" dtmfterm="true" type="audio/x-wav">
+      <prompt> Record after the beep.  Pound to stop. </prompt>
+      <noinput>
+        I didn't hear anything, please try again.
+      </noinput>
+      <filled>
+        <script> <![CDATA[
+          global.recordingArray.push( msg );
+          vvb.log( dumpProps( msg ) );
+          ]]>
+        </script> 
+        <goto next="#PLAYBACK_WHICH_RECORDING" />
+      </filled>
+    </record>
+    
+    <catch event="noinput nomatch">
+      <reprompt/>
+    </catch>
+
+  </form>
+  <!-- end of RECORDING -->
+
+  <!-- FORM PLAYBACK_WHICH_RECORDING  ********************************************** -->
+  <form id="PLAYBACK_WHICH_RECORDING">
+    <var name="promptNumbers" expr="'one'" />
+    <block>
+      <script> <![CDATA[
+        if ( global.recordingArray.length == 2 ) { promptNumbers = 'one, or two'; }
+        else { promptNumbers = 'one, two, or three'; } 
+        ]]>
+      </script>
+    </block>
+
+    <field name="recordingNumber">
+      <prompt bargein="true"> 
+        Do you want to play back the last recording, or recording <value expr="promptNumbers" />, or none, or all? 
+      </prompt>
+      <option value="0"> no </option>
+      <option value="0"> none </option>
+      <option value="1"> one </option>
+      <option value="2"> two </option>
+      <option value="3"> three </option>
+      <option value="-1"> all </option>
+      <option value="-2"> last </option>
+      <option value="-2"> the last </option>
+      <option value="-2"> the last one </option>
+      <filled>
+        <script> <![CDATA[
+          vvb.log( dumpProps( recordingNumber$ ) );
+          vvb.log( recordingNumber );
+          global.whichRecordingRecognitionObj = recordingNumber$;
+          if ( recordingNumber == -2 ) {
+            global.whichRecordingResult = global.recordingArray.length - 1;
+          } else {
+            global.whichRecordingResult = recordingNumber;
+          } ]]>
+        </script>
+        <goto next="#PLAYBACK" />
+      </filled>      
+    </field>
+    
+    <catch event="noinput nomatch">
+      <reprompt/>
+    </catch>
+
+  </form>
+  <!-- end of FORM PLAYBACK_WHICH_RECORDING  ***** -->
+
+  <!-- FORM PLAYBACK -->
+  <form id="PLAYBACK" >
+    <property name="bargein" value="false"/>
+    <property name="timeout" value="1s"/>
+    <script> <![CDATA[
+      var dummyString="A dummy string" ;
+      var recordingResult = null;
+      var playAll = false ;
+      var recordingCount = global.recordingArray.length;
+      var recordingOne = null;
+      var recordingTwo = null;
+      var recordingThree = null;
+      ]]>
+    </script>
+    <block>
+      <log expr="'playback'" />
+      <if cond="global.whichRecordingResult == 0" >
+        <prompt> Alright, will playback none.</prompt>
+        <goto next="#WHAT_NEXT" />
+        <!--assign name="global.whichRecordingResult" expr="1" /-->
+      </if>
+      <if cond="global.whichRecordingResult &gt; recordingCount" >
+        <prompt> Sorry, there is no recording <value expr="global.whichRecordingResult"/>.</prompt>
+        <goto next="#WHAT_NEXT" />
+      </if>
+      <if cond="global.whichRecordingResult &gt; 0" >
+        <script>          <![CDATA[
+          recordingResult = global.recordingArray[ (global.whichRecordingResult - 1) ];
+          vvb.log ( dumpProps( recordingResult ) ) ;
+          ]]>
+        </script>
+        <prompt> The recorded audio was: <audio expr="recordingResult" /> End.  </prompt>
+      <else/>
+        <script> <![CDATA[
+          playAll = true;
+          var i;
+          for ( i = 0; i &lt; recordingCount; i++ ) {
+            recordingResult = global.recordingArray[ i ];
+            vvb.log ( dumpProps( recordingResult ) ) ;
+            if ( i == 0 )     { recordingOne = recordingResult; }
+            elseif ( i == 1 ) { recordingTwo = recordingResult; }
+            elseif ( i == 2 ) { recordingThree = recordingResult; }
+          } ]]>
+        </script>
+        <foreach item="recording" array="global.recordingArray" >
+          <prompt> The recorded audio was: <audio expr="recordingResult" /> End.  </prompt>
+        </foreach>
+      </if>
+    </block>
+    <subdialog  cond="playAll==false" 
+                name="recording_post"
+                src="http://dfwjmeek/POST_Test_01/cgi-bin/showPostParameters.cgi"
+                enctype="multipart/form-data"
+                namelist="dummyString recordingResult.file recordingResult dummyString"
+                method="post"> 
+      <filled>
+        <prompt> Play-all false subdialog filled </prompt>
+      </filled>
+    </subdialog>
+    <subdialog  cond="playAll==true &amp;&amp; recordingCount==1"
+                src="http://dfwjmeek/POST_Test_01/cgi-bin/showPostParameters.cgi"
+                enctype="multipart/form-data"
+                namelist="dummyString recordingOne.file recordingOne dummyString"
+                method="post"> 
+      <filled>
+        <prompt> Play-all one-recording subdialog filled </prompt>
+      </filled>
+    </subdialog>
+    <subdialog  cond="playAll==true &amp;&amp; recordingCount==2"
+                src="http://dfwjmeek/POST_Test_01/cgi-bin/showPostParameters.cgi"
+                enctype="multipart/form-data"
+                namelist="dummyString recordingOne.file recordingTwo.file recordingOne recordingTwo dummyString"
+                method="post"> 
+      <filled>
+        <prompt> Play-all two-recordings subdialog filled </prompt>
+      </filled>
+    </subdialog>
+    <subdialog  cond="playAll==true &amp;&amp; recordingCount==3"
+                src="http://dfwjmeek/POST_Test_01/cgi-bin/showPostParameters.cgi"
+                enctype="multipart/form-data"
+                namelist="dummyString recordingOne.file recordingTwo.file recordingThree.file recordingOne recordingTwo recordingThree dummyString"
+                method="post"> 
+      <filled>
+        <prompt> Play-all three-recordings subdialog filled </prompt>
+      </filled>
+    </subdialog>
+    <subdialog  cond="recordingCount &ge; 1"
+                src="http://dfwjmeek/POST_Test_01/cgi-bin/showPostParameters.cgi"
+                enctype="multipart/form-data"
+                namelist="global.recordingArray dummyString"
+                method="post"> 
+      <filled>
+        <prompt> Play whole recording array subdialog filled </prompt>
+      </filled>
+    </subdialog>
+
+    <block>
+      <goto next="#WHAT_NEXT" />
+    </block>
+
+  </form>
+  <!-- end of PLAYBACK -->
+
+  <!-- MENU WHAT_NEXT  ********************************************** -->
+  <menu id="WHAT_NEXT">
+    <property name="bargein" value="true"/>
+    <property name="timeout" value="2s"/>
+
+    <prompt> Do you want to record again, playback again, or exit? </prompt>
+
+    <choice next="#RECORD" >
+      <grammar type="application/srgs+xml" root="recordAgain">
+        <rule id="recordAgain" scope="public" >
+            <one-of>
+              <item> yes </item>
+              <item> record </item>
+              <item> record again </item>
+            </one-of>
+        </rule>
+      </grammar>
+    </choice>
+
+    <choice next="#PLAYBACK" >
+      <grammar type="application/srgs+xml" root="playbackAgain">
+        <rule id="playbackAgain" scope="public" >
+            <one-of>
+              <item> play back </item>
+              <item> play back again </item>
+            </one-of>
+        </rule>
+      </grammar>
+    </choice>
+
+    <choice next="#EXIT" >
+      <grammar type="application/srgs+xml" root="exit">
+        <rule id="exit" scope="public" >
+            <one-of>
+              <item> exit </item>
+              <item> quit </item>
+              <item> bye </item>
+            </one-of>
+        </rule>
+      </grammar>
+    </choice>
+
+    <catch event="noinput nomatch">
+      <reprompt/>
+    </catch>
+
+  </menu>
+  <!-- end of MENU WHAT_NEXT  ***** -->
+  
+  <!--catch event="exit" condition = "1">
+    
+  </catch-->
+
+</vxml>
+

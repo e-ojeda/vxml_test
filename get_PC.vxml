@@ -2,7 +2,7 @@
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
 	<var name="hi" expr="'Welcome!'"/>
 	<!-- Gives Error: "XML error Invalid start data" -->
-	<data name="dnis_from_json" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.txt"/>
+	<!-- <data name="dnis_from_json" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.txt"/> -->
 	<data name="dnis" src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"/> 
 	<script><![CDATA[
 	  var property_code = dnis.documentElement.getElementsByTagName("property_code").item(0).firstChild.data;
