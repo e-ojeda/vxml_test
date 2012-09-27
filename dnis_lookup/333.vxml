@@ -1,8 +1,8 @@
 <vxml version="2.0">
 	<script>
-	  var property_codeA = 30000
+	  var property_code = 30000
 	</script>
-	<var name="property_code" expr="35000.00"/>
+	<var name="property_codeB" expr="35000.00"/>
   <form>
 	  <field name="property_codeC" type="digits">
       <prompt> What is the property code? </prompt>
