@@ -4,7 +4,7 @@
     <field name="acctnum" type="digits">
       <prompt> What is your account number? </prompt>
     </field>
-    <field name="acctphone" type="phone">
+    <field name="acctphone" type="digits">
       <prompt> What is your home telephone number? </prompt>
       <filled>
         <return namelist="acctnum acctphone"/>
