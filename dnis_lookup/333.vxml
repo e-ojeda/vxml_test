@@ -5,7 +5,7 @@
 	<var name="property_code" expr="'XYZ'"/>
   <form>
 	  <field name="continue" type="boolean">
-      <prompt> I got the property code. Would you like to continue? </prompt>
+      <prompt> I got the property code. Press 1 or say 'yes' to continue </prompt>
       <filled>
 				<return namelist="property_code"/>
       </filled>
