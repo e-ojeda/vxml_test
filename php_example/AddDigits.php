@@ -9,7 +9,7 @@ header('Cache-Control: no-cache');
 //get the sum of our digits
 $digitTotal = $digit1 + $digit2;
 
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+echo("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
 ?>
 <vxml version="2.0">
 
