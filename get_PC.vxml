@@ -28,7 +28,7 @@
 		<block>
 			<value expr="message"/>
 			<!-- The property code for the number 55555 is <value expr="property_code"/>			 -->
-			The property code is <value expr="getting_xml.stuff1"/>.
+			The property code is <value expr="getting_xml.property_code"/>.
 		</block>
 	
 		<block>
