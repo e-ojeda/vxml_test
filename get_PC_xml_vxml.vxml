@@ -11,7 +11,7 @@
     <field name="dnis_number" type="digits">
       <prompt> Enter the number </prompt>
       <filled>
-        <var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
+				<assign name="dnis_number_vxml" expr="dnis_number + '.vxml'"/>
       </filled>
     </field>
   </form>
