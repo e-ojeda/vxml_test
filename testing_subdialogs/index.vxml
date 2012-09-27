@@ -7,18 +7,7 @@
 <meta name="maintainer" content="YOUR_EMAIL@HERE.COM"/> 
 
 <form id="F1"> 
-  <subdialog name="SubD_1" src="https://raw.github.com/e-ojeda/vxml_test/master/testing_subdialogs/MySubD.vxml" cond="false"> 
-    <param name="confirm_prompt" 
-        expr="'since the condition is set to false, this will not be executed'"/> 
-  </subdialog> 
-
-  <subdialog name="SubD_2" src="MySubD.vxml" expr="crusty"> 
-    <param name="confirm_prompt" 
-        expr="'since the expression is not set to undefined, 
-                    this will not be executed'"/> 
-  </subdialog> 
-
-  <subdialog name="SubD_3" src="MySubD.vxml" cond="true" expr=""> 
+  <subdialog name="SubD_3" src="https://raw.github.com/e-ojeda/vxml_test/master/testing_subdialogs/MySubD.vxml" cond="true" expr=""> 
     <param name="confirm_prompt" 
         expr="'this subdialog will be executed, 
                     since the condition is true, and the 
