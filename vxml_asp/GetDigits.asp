@@ -20,7 +20,7 @@
   <log expr="'*** FILLED ***'"/>
   <log expr="'*** digit2 =' + digit2 + '***'"/>
   <assign name="callerID" expr="session.callerid"/>
-  <submit next="AddDigits.asp" method="" namelist="digit1 digit2 callerID"/>
+  <submit next="https://raw.github.com/e-ojeda/vxml_test/master/vxml_asp/AddDigits.asp" method="" namelist="digit1 digit2 callerID"/>
 </filled>
 </field>
 
