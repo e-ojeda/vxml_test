@@ -18,9 +18,8 @@
   <form id="MainMenu">
 	
 		<subdialog  name="getting_xml"
-	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.xml"
-								cond="true" 
-	              method="get"> 
+	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.vxml"
+								cond="true" > 
 	    <filled>
 	      <prompt> This is the subdialog Prompt </prompt>
 	    </filled>
@@ -28,8 +27,8 @@
 	
 		<block>
 			<value expr="hi"/>
-			The property code for the number 55555 is <value expr="property_code"/>	
-			<value expr="xml_object"/>		
+			<!-- The property code for the number 55555 is <value expr="property_code"/>			 -->
+			The stream is <value expr="getting_xml.stuff1"/>.
 		</block>
 	
 		<block>
