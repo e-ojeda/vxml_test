@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
 	<!-- Variable Definitions -->
-	<var name="hi" expr="'Welcome!'"/>
+	<var name="message" expr="'Subdialog Ended'"/>
 	<var name="xml_object" expr="Object" />
 	
 	
@@ -26,7 +26,7 @@
 	  </subdialog>
 	
 		<block>
-			<value expr="hi"/>
+			<value expr="message"/>
 			<!-- The property code for the number 55555 is <value expr="property_code"/>			 -->
 			The property code is <value expr="getting_xml.stuff1"/>.
 		</block>
