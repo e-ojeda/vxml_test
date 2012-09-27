@@ -1,6 +1,5 @@
 <?php
 header("Content-type: text/xml");
-echo("<?xml version=\"1.0\"?>\n");
 $random1 = "green";
 $random2 = "blue";
 $random3 = "yellow";
