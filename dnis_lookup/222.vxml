@@ -2,7 +2,7 @@
 	<script>
 	  var property_codeA = 30000
 	</script>
-	<var name="property_code" expr="'CCC'"/>
+	<var name="property_code" expr="'BBB'"/>
   <form>
 	  <field name="continue" type="boolean">
       <prompt> I got the property code. Press 1 or say 'yes' to continue </prompt>

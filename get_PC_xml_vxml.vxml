@@ -3,10 +3,11 @@
 	<!-- Variable Definitions -->
 	<var name="message" expr="'Subdialog no longer active.'"/>
 	<var name="xml_object" expr="Object" />
+	<var name="dnis_number" expr="333"/>
 	
   <form id="MainMenu">	
 		<subdialog  name="dnis"
-	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/333.vxml"
+	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/"<value expr="dnis.property_code"/>".vxml"
 								cond="true" > 
 	    <filled>
 	      <prompt> End of Subdialog. </prompt>
