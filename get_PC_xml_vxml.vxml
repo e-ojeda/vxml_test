@@ -4,7 +4,7 @@
 	<var name="message" expr="'Subdialog no longer active.'"/>
 	<var name="xml_object" expr="Object" />
 	<var name="dnis_number" expr="333"/>
-	<var name="dnis_number.vxml" expr="'333.vxml'">
+	<var name="dnis_number.vxml" expr="'333.vxml'"/>
 	
   <form id="MainMenu">	
 		<subdialog  name="dnis"
