@@ -8,7 +8,7 @@
 	
   <form id="MainMenu">	
 		<subdialog  name="dnis"
-	              src= uri
+	              src= <value expr="uri" />
 								cond="true" > 
 	    <filled>
 	      <prompt> End of Subdialog. </prompt>
