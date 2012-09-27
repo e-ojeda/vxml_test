@@ -4,10 +4,10 @@
 	</script>
 	<var name="property_codeB" expr="35000.00"/>
   <form>
-	  <field name="property_codeC" type="digits">
+	  <field name="property_code" type="digits">
       <prompt> What is the property code? </prompt>
       <filled>
-				<return namelist="property_codeC"/>
+				<return namelist="property_code"/>
       </filled>
     </field>
 	</form>
