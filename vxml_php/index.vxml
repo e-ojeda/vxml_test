@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<vxml version="2.1">
+  <form>
+    <subdialog name="random" src="https://raw.github.com/e-ojeda/vxml_test/master/vxml_php/subdialog.php"/>
+    <block>
+      The grass is <value expr="random.stuff1"/>.
+      The sky is <value expr="random.stuff2"/>.
+      The stream is <value expr="random.stuff3"/>.
+    </block>
+  </form>
+</vxml>
