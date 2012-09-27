@@ -1,30 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-
-<vxml version = "2.1"> 
-
-<meta name="author" content="Matthew Henry"/> 
-<meta name="copyright" content="2005 voxeo corporation"/> 
-<meta name="maintainer" content="YOUR_EMAIL@HERE.COM"/> 
-
-<form id="F1"> 
-  <var name="confirm_prompt"/> 
-  <var name="response"/> 
-
-  <field name="field_confirm" type="boolean"> 
-    <prompt> 
-      <value expr="confirm_prompt"/> 
-    </prompt> 
-    
-    <filled> 
-      <if cond="field_confirm == true"> 
-        <assign name="response" expr="'yes'"/> 
-      <else/> 
-        <assign name="response" expr="'no'"/> 
-      </if> 
-        <return namelist="response"/> 
-    </filled> 
-  </field> 
-
-</form> 
-
+<?xml version="1.0"?>
+<vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+  <form>
+    <field name="acctnum" type="digits">
+      <prompt> What is your account number? </prompt>
+    </field>
+    <field name="acctphone" type="phone">
+      <prompt> What is your home telephone number? </prompt>
+      <filled>
+        <return namelist="acctnum acctphone"/>
+      </filled>
+    </field>
+  </form>
 </vxml>

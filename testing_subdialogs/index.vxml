@@ -1,24 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-
-<vxml version = "2.1"> 
-
-<meta name="author" content="Matthew Henry"/> 
-<meta name="copyright" content="2005 voxeo corporation"/> 
-<meta name="maintainer" content="YOUR_EMAIL@HERE.COM"/> 
-
-<form id="F1"> 
-  <subdialog name="SubD_3" src="https://raw.github.com/e-ojeda/vxml_test/master/testing_subdialogs/MySubD.vxml" cond="true" expr=""> 
-    <param name="confirm_prompt" 
-        expr="'this subdialog will be executed, 
-                    since the condition is true, and the 
-                    expression is undefined. Say yes 
-                    or no to execute the subdialog file.'"/> 
-      <filled> 
-        <prompt> poppa oo mow mow! </prompt> 
-      </filled> 
-
-  </subdialog> 
-
-</form> 
-
+<?xml version="1.0"?>
+<vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
+  <form>
+    <subdialog name="result" src="https://raw.github.com/e-ojeda/vxml_test/master/testing_subdialogs/MySubD.vxml">
+      <filled>
+        Your account number is <value expr="result.acctnum"/>.
+        Your phone number is <value expr="result.acctphone"/>.
+      </filled>
+    </subdialog>
+  </form>
 </vxml>
