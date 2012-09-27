@@ -19,7 +19,7 @@
   <filled>
   <log expr="'*** FILLED ***'"/>
   <log expr="'*** digit2 =' + digit2 + '***'"/>
-  <assign name="callerID" expr="'<%=Request("session.callerid")%>'"/>
+  <assign name="callerID" expr="session.callerid"/>
   <submit next="AddDigits.asp" method="" namelist="digit1 digit2 callerID"/>
 </filled>
 </field>
