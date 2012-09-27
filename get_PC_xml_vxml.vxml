@@ -7,16 +7,17 @@
 	<var name="dnis_number_vxml" expr="'333.vxml'"/>
 	
 	
-	<!-- <form>
+	<form>
     <field name="dnis_number" type="digits">
       <prompt> Enter the number </prompt>
       <filled>
         <var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
       </filled>
     </field>
-  </form> -->
+  </form>
 	
-	<var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
+	<!-- This line works, it can make the dnis_number_vxml change value + adding vxml extension -->
+	<!-- <var name="dnis_number_vxml" expr="dnis_number + '.vxml'" /> -->
 	
   <form id="MainMenu">	
 		<subdialog  name="dnis"
