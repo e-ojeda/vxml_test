@@ -6,16 +6,6 @@
 	<var name="dnis_number" expr="222"/>
 	<var name="dnis_number_vxml" expr="'333.vxml'"/>
 	
-	
-	<!-- <form>
-    <field name="dnis_number" type="digits">
-      <prompt> Enter the number </prompt>
-      <filled>
-        <var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
-      </filled>
-    </field>
-  </form> -->
-	
 	<!-- This line works, it can make the dnis_number_vxml change value + adding vxml extension -->
 	<var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
 	
