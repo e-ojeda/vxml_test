@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <vxml version="2.0" xmlns="http://www.w3.org/2001/vxml">
 	<!-- Variable Definitions -->
-	<var name="message" expr="'Subdialog Ended.'"/>
+	<var name="message" expr="'Subdialog no longer active.'"/>
 	<var name="xml_object" expr="Object" />
 	
 	
@@ -21,7 +21,7 @@
 	              src="https://raw.github.com/e-ojeda/vxml_test/master/dnis_lookup/55555.vxml"
 								cond="true" > 
 	    <filled>
-	      <prompt> This is the subdialog Prompt </prompt>
+	      <prompt> I got the property code. </prompt>
 	    </filled>
 	  </subdialog>
 	
