@@ -3,8 +3,20 @@
 	<!-- Variable Definitions -->
 	<var name="message" expr="'Subdialog no longer active.'"/>
 	<var name="xml_object" expr="Object" />
-	<var name="dnis_number" expr="333"/>
+	<var name="dnis_number" expr="222"/>
 	<var name="dnis_number_vxml" expr="'333.vxml'"/>
+	
+	
+	<!-- <form>
+    <field name="dnis_number" type="digits">
+      <prompt> Enter the number </prompt>
+      <filled>
+        <var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
+      </filled>
+    </field>
+  </form> -->
+	
+	<var name="dnis_number_vxml" expr="dnis_number + '.vxml'" />
 	
   <form id="MainMenu">	
 		<subdialog  name="dnis"
